@@ -7,10 +7,10 @@ import About from '../components/About';
 import Contacts from "../components/Contacts"
 import NewsDetail from "../components/NewsDetail"
 import { connect } from 'react-redux';
-import{addNews} from '../actions/News'
+import { addNews } from '../actions/News'
+import Register from '../components/register'
 
-
-const App = ({news,addNews}) => {
+const App = ({ news, addNews }) => {
 
 
     useEffect(() => {
@@ -34,22 +34,25 @@ const App = ({news,addNews}) => {
                     </div>
                 </Route>
                 <Route path="/about" exact>
-                    <About/>
+                    <About />
                 </Route>
                 <Route path="/contacts">
-                    <Contacts/>
+                    <Contacts />
                 </Route>
                 <Route path="/news/:newsId">
-                    <NewsDetail/>
+                    <NewsDetail />
+                </Route>
+                <Route path="/register">
+                    < Register />
                 </Route>
             </div>
         </div>
     );
 };
 
-const msp = ({news}) =>{
-    return{news}
+const msp = ({ news }) => {
+    return { news }
 }
 
 
-export default connect(msp,{addNews}) (App);
+export default connect(msp, { addNews })(App);
